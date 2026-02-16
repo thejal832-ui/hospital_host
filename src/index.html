@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospitality Token Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Hospitality Token Registration</h2>
+
+    <form id="registrationForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        
+        <select id="idProof" required>
+            <option value="">Select ID Proof</option>
+            <option value="Aadhar">Aadhar Card</option>
+            <option value="Passport">Passport</option>
+            <option value="Driving License">Driving License</option>
+        </select>
+
+        <input type="number" id="guests" placeholder="Number of Guests" min="1" required>
+
+        <select id="roomType" required>
+            <option value="">Select Room Type</option>
+            <option value="Single">Single Room</option>
+            <option value="Double">Double Room</option>
+            <option value="Suite">Suite</option>
+        </select>
+
+        <button type="submit">Register</button>
+        <div class="message" id="message"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let guests = document.getElementById("guests").value;
+
+        if (name === "" || email === "" || phone === "" || guests === "") {
+            document.getElementById("message").style.color = "red";
+            document.getElementById("message").innerText = "Please fill all fields!";
+            return;
+        }
+
+        document.getElementById("message").style.color = "green";
+        document.getElementById("message").innerText = 
+            "Registration Successful! Your token has been generated.";
+
+        document.getElementById("registrationForm").reset();
+    });
+</script>
+
+</body>
+</html>
