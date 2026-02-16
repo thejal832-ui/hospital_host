@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Queue System</title>
+
+    <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      border-bottom: 2px solid #ddd;
+      background: #fff;
+      position: fixed;
+      top: 0;
+      width: 95%;
+    }
+
+    .menu a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      text-align: end;
+    }
+
+    .menu a.active {
+      color: #5b6cff;
+      border-bottom: 2px solid #5b6cff;
+      padding-bottom: 4px;
+    }
+
+        .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #5b6cff;
+    }
+
+    .btn {
+      background: #5b6cff;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    body { font-family: Arial; background:#f2f2f2; }
+        .box {
+            width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button { background: green; color: white; border: none; }
+        button:hover { background: darkgreen; }
+
+
+
+
+    </style>
+
+<body>
+
+<div class="box">
+    <h2>Hospital Token System</h2>
+
+    <input type="text" id="name" placeholder="Patient Name">
+    <button onclick="addPatient()">Register</button>
+    <button onclick="nextPatient()">Next Patient</button>
+
+    <h3>Waiting List:</h3>
+    <ul id="list"></ul>
+</div>
+
+<div class="navbar">
+    <div class="menu">
+
+    <a href="#" onclick="setActive(this)">Home</a>
+    <a href="#" onclick="setActive(this)">All Doctors</a>
+    <a href="#" onclick="setActive(this)">About</a>
+    <a href="#" onclick="setActive(this)">Contact</a>
+  </div>
+
+  <a href="#" class="btn" onclick="createAccount()">Create Account</a>
+</div>
+
+
+<script>
+let queue = [];
+
+function addPatient() {
+    let name = document.getElementById("name").value;
+
+    if(name === "") {
+        alert("Enter patient name");
+        return;
+    }
+
+    queue.push(name);  
+    document.getElementById("name").value = "";
+    displayQueue();
+}
+
+function nextPatient() {
+    if(queue.length === 0) {
+        alert("No patients in queue");
+        return;
+    }
+
+    let removed = queue.shift();  
+    alert("Now Consulting: " + removed);
+    displayQueue();
+}
+
+function displayQueue() {
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+
+    for(let i = 0; i < queue.length; i++) {
+        list.innerHTML += "<li>Token " + (i+1) + " - " + queue[i] + "</li>";
+    }
+}
+</script>
+
+
+<script>
+  function setActive(element) {
+    document.querySelectorAll('.menu a')
+      .forEach(link => link.classList.remove('active'));
+
+    element.classList.add('active');
+  }
+
+  function createAccount() {
+    alert("Create Account clicked!");
+  }
+</script>
