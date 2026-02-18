@@ -60,7 +60,7 @@
 
     body {
       font-family: Arial;
-      background: #f2f2f2;
+      background: #e9e1e1;
     }
 
     .box {
@@ -87,11 +87,11 @@
     }
 
     button:hover {
-      background: rgb(114, 143, 114);
+      background: rgb(143, 114, 136);
     }
   </style>
 
-<body>
+ <body>
 
   <div class="main-container">
     <div class="card">
@@ -124,7 +124,7 @@
   </div>
 
 
-  <script>
+   <script>
     let queue = [];
 
     function addPatient() {
@@ -157,7 +157,7 @@
 
       for (let i = 0; i < queue.length; i++) {
         list.innerHTML += "<li>Token " + (i + 1) + " - " + queue[i] + "</li>";
-      }
+      } 
     }
   </script>
   <div id="root"></div>
@@ -167,7 +167,7 @@
 </html>
 
 
-<script>
+ <script>
   function setActive(element) {
     document.querySelectorAll('.menu a')
       .forEach(link => link.classList.remove('active'));
@@ -178,4 +178,4 @@
   function createAccount() {
     alert("Create Account clicked!");
   }
-</script>
+</script> 
