@@ -1,86 +1,51 @@
-import { useState } from 'react';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import Home from './pages/Home';
+// import Doctors from './pages/AllDoctors';
 
-interface Patient {
-  name: string;
-  token: number;
-}
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <div className="min-h-screen">
+//         {/* Pink Navbar */}
+//         <nav className="bg-[#E5B4B4] px-8 py-3 flex justify-between items-center shadow-sm sticky top-0 z-50">
+//           <div className="flex items-center gap-10">
+//             <span className="font-bold text-slate-700">HospitalSync</span>
+//             <div className="hidden md:flex gap-8 text-sm font-medium text-slate-700">
+//               <Link to="/" className="hover:text-white transition-colors">Home</Link>
+//               <Link to="/doctors" className="hover:text-white transition-colors">All Doctors</Link>
+//               <Link to="/about" className="hover:text-white transition-colors">About</Link>
+//               <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
+//             </div>
+//           </div>
+//           <button className="bg-[#5b6cff] text-white px-5 py-2 rounded-full text-xs font-bold shadow-md hover:bg-blue-600 transition-all">
+//             Create Account
+//           </button>
+//         </nav>
+
+//         {/* Dynamic Route Content */}
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/doctors" element={<Doctors />} />
+//           <Route path="/about" element={<div className="p-20 text-center">About Page</div>} />
+//           <Route path="/contact" element={<div className="p-20 text-center">Contact Page</div>} />
+//         </Routes>
+//       </div>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
-  const [name, setName] = useState('');
-  const [queue, setQueue] = useState<Patient[]>([]);
-  const [tokenCounter, setTokenCounter] = useState(1);
-  const [currentPatient, setCurrentPatient] = useState<Patient | null>(null);
-
-  const registerPatient = () => {
-    if (!name.trim()) {
-      alert("Please enter a patient name");
-      return;
-    }
-    const newPatient = { name: name, token: tokenCounter };
-    setQueue([...queue, newPatient]);
-    setTokenCounter(tokenCounter + 1);
-    setName('');
-  };
-
-  const callNextPatient = () => {
-    if (queue.length === 0) {
-      alert("No patients in queue");
-      return;
-    }
-    const next = queue[0];
-    setCurrentPatient(next);
-    setQueue(queue.slice(1));
-  };
-
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', maxWidth: '500px', margin: 'auto' }}>
-      <h1 style={{ textAlign: 'center' }}>Hospital Token System</h1>
-      
-      <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-        <h3>Register Patient</h3>
-        <input 
-          type="text" 
-          placeholder="Patient Name" 
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          style={{ width: '100%', padding: '10px', marginBottom: '10px', boxSizing: 'border-box' }}
-        />
-        <button 
-          onClick={registerPatient}
-          style={{ width: '100%', padding: '10px', backgroundColor: '#4CAF50', color: 'white', border: 'none', cursor: 'pointer' }}
-        >
-          Register
-        </button>
-      </div>
-
-      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <button 
-          onClick={callNextPatient}
-          style={{ padding: '10px 20px', backgroundColor: '#2196F3', color: 'white', border: 'none', cursor: 'pointer' }}
-        >
-          Call Next Patient
-        </button>
-      </div>
-
-      {currentPatient && (
-        <div style={{ backgroundColor: '#fff9c4', padding: '15px', borderRadius: '8px', textAlign: 'center', marginBottom: '20px' }}>
-          <h2>Now Calling: {currentPatient.name}</h2>
-          <h3>Token #{currentPatient.token}</h3>
-        </div>
-      )}
-
-      <div>
-        <h3>Waiting list ({queue.length})</h3>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {queue.map((p, i) => (
-            <li key={i} style={{ padding: '8px', borderBottom: '1px solid #eee' }}>
-              Token {p.token}: {p.name}
-            </li>
-          ))}
-          {queue.length === 0 && <li style={{ color: '#888' }}>Queue is empty</li>}
-        </ul>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

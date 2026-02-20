@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 
 <head>
@@ -13,4 +13,201 @@
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
+</html> -->
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Queue System</title>
+
+<style>
+
+/* ===== BODY WITH BACKGROUND IMAGE ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background:
+        /* linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), */
+        url("medical.jpg");   /* Put image in same folder */
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgb(217, 230, 236);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.menu a.active {
+    color: #1826a9;
+    border-bottom: 2px solid #5b6cff;
+    padding-bottom: 4px;
+}
+
+.btn {
+    background: #1a2497;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+  
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ===== CARD ===== */
+.box {
+    width: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.box h2 {
+    text-align: center;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+}
+
+input {
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #070a23;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3f4cc9;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f3f3f3;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="menu">
+        <a href="#" onclick="setActive(this)">Home</a>
+        <a href="#" onclick="setActive(this)">All Doctors</a>
+        <a href="#" onclick="setActive(this)">About</a>
+        <a href="#" onclick="setActive(this)">Contact</a>
+    </div>
+    <a href="#" class="btn" onclick="createAccount()">Create Account</a>
+</div>
+
+
+
+<!-- MAIN SECTION -->
+<div class="main">
+    <div class="box">
+        <h2>Hospital Token System</h2>
+
+        <input type="text" id="name" placeholder="Patient Name">
+
+        <button onclick="addPatient()">Register</button>
+        <button onclick="nextPatient()">Next Patient</button>
+
+        <h3>Waiting List:</h3>
+        <ul id="list"></ul>
+    </div>
+</div>
+
+<script>
+let queue = [];
+
+function addPatient() {
+    let name = document.getElementById("name").value;
+
+    if(name === "") {
+        alert("Enter patient name");
+        return;
+    }
+
+    queue.push(name);
+    document.getElementById("name").value = "";
+    displayQueue();
+}
+
+function nextPatient() {
+    if(queue.length === 0) {
+        alert("No patients in queue");
+        return;
+    }
+
+    let removed = queue.shift();
+    alert("Now Consulting: " + removed);
+    displayQueue();
+}
+
+function displayQueue() {
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+
+    for(let i = 0; i < queue.length; i++) {
+        list.innerHTML += "<li>Token " + (i+1) + " - " + queue[i] + "</li>";
+    }
+}
+
+function setActive(element) {
+    document.querySelectorAll('.menu a')
+      .forEach(link => link.classList.remove('active'));
+
+    element.classList.add('active');
+}
+
+function createAccount() {
+    alert("Create Account clicked!");
+}
+</script>
+
+</body>
 </html>

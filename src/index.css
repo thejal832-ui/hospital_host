@@ -1,4 +1,15 @@
-body {
-  margin: 0;
-  background-color: #f4f4f4;
+@import "tailwindcss";
+
+@theme {
+  --color-primary-blue: #5b6cff;
+  --color-navbar-pink: #E5B4B4;
+  --color-dark-bg: #1a1a1a;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+  }
 }
