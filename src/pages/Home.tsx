@@ -168,18 +168,6 @@ import hospitalImg from "../assets/hospital.jpg";
 export default function Home() {
   return (
     <div className="app">
-
-      {/* Navbar */}
-      <nav className="navbar">
-        <h2 className="logo">HospitalSync</h2>
-        <div className="nav-links">
-          <a href="#">Home</a>
-          <a href="#">All Doctors</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
@@ -209,7 +197,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

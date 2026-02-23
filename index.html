@@ -45,7 +45,7 @@ body {
     align-items: center;
     padding: 15px 40px;
     background: rgb(217, 230, 236);
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -84,10 +84,11 @@ body {
 /* ===== CARD ===== */
 .box {
     width: 400px;
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    align-items: center;
 }
 
 .box h2 {
@@ -128,6 +129,42 @@ li {
     border-radius: 6px;
 }
 
+/* ===== HEADER INFO ===== */
+.info-bar {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.counter {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #1a2497;
+}
+
+/* Current Patient Box */
+.current {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e8f0ff;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #070a23;
+}
+
+/* Clear Button */
+.clear-btn {
+    background: crimson;
+}
+
+.clear-btn:hover {
+    background: darkred;
+}
+
+
+
 </style>
 </head>
 
@@ -145,9 +182,7 @@ li {
 </div>
 
 
-
-<!-- MAIN SECTION -->
-<div class="main">
+<!-- <div class="main">
     <div class="box">
         <h2>Hospital Token System</h2>
 
@@ -159,6 +194,28 @@ li {
         <h3>Waiting List:</h3>
         <ul id="list"></ul>
     </div>
+</div> -->
+
+<div class="box">
+    <h2>Hospital Token System</h2>
+
+    <div class="info-bar">
+        <div id="dateTime"></div>
+        <div class="counter">Total Waiting: <span id="count">0</span></div>
+    </div>
+
+    <input type="text" id="name" placeholder="Patient Name">
+
+    <button onclick="addPatient()">Register</button>
+    <button onclick="nextPatient()">Next Patient</button>
+    <button class="clear-btn" onclick="clearAll()">Clear All</button>
+
+    <div class="current" id="currentPatient">
+        No patient being consulted
+    </div>
+
+    <h3>Waiting List:</h3>
+    <ul id="list"></ul>
 </div>
 
 <script>
@@ -184,19 +241,33 @@ function nextPatient() {
     }
 
     let removed = queue.shift();
-    alert("Now Consulting: " + removed);
+    document.getElementById("currentPatient").innerHTML =
+        "Now Consulting: " + removed;
+
+    displayQueue();
+}
+
+function clearAll() {
+    queue = [];
+    document.getElementById("currentPatient").innerHTML =
+        "No patient being consulted";
     displayQueue();
 }
 
 function displayQueue() {
     let list = document.getElementById("list");
+    let count = document.getElementById("count");
+
     list.innerHTML = "";
 
     for(let i = 0; i < queue.length; i++) {
         list.innerHTML += "<li>Token " + (i+1) + " - " + queue[i] + "</li>";
     }
+
+    count.innerText = queue.length;
 }
 
+/* Active Menu */
 function setActive(element) {
     document.querySelectorAll('.menu a')
       .forEach(link => link.classList.remove('active'));
@@ -204,9 +275,20 @@ function setActive(element) {
     element.classList.add('active');
 }
 
+/* Create Account */
 function createAccount() {
     alert("Create Account clicked!");
 }
+
+/* Live Date & Time */
+function updateDateTime() {
+    let now = new Date();
+    document.getElementById("dateTime").innerText =
+        now.toLocaleString();
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
 </script>
 
 </body>
