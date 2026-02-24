@@ -35,6 +35,7 @@ function Navbar() {
         <NavLink to="/contact" style={{color:"white"}}>Contact</NavLink>
       </div>
     </nav>
+    
   );
 }
 
