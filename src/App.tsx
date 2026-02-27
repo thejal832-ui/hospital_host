@@ -52,21 +52,22 @@
 // export default App;
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import Home from "./pages/Home";
-import AllDoctors from "./pages/AllDoctors";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Doctors from "./pages/AllDoctors";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/doctors" element={<AllDoctors />} />
+        <Route path="/doctors" element={<Doctors />} />
       </Routes>
     </BrowserRouter>
   );

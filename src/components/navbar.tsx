@@ -10,32 +10,17 @@
     Create Account
   </button>
 </nav> */}
+import { Link } from "react-router-dom";
 
-import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.jpg";
 
 function Navbar() {
   return (
-    <nav style={{
-      display: "flex",
-      justifyContent: "space-between",
-      padding: "15px 40px",
-      background: "#0a3d62",
-      color: "white"
-    }}>
-      <div style={{display:"flex", alignItems:"center", gap:"10px"}}>
-        <img src={logo} alt="logo" width="40" />
-        <h2>CityCare</h2>
-      </div>
-
-      <div style={{display:"flex", gap:"20px"}}>
-        <NavLink to="/" style={{color:"white"}}>Home</NavLink>
-        <NavLink to="/about" style={{color:"white"}}>About</NavLink>
-        <NavLink to="/doctors" style={{color:"white"}}>Doctors</NavLink>
-        <NavLink to="/contact" style={{color:"white"}}>Contact</NavLink>
-      </div>
+    <nav style={{ padding: "20px", background: "#eee" }}>
+      <Link to="/" style={{ marginRight: "20px" }}>Home</Link>
+      <Link to="/about" style={{ marginRight: "20px" }}>About</Link>
+      <Link to="/contact" style={{ marginRight: "20px" }}>Contact</Link>
+      <Link to="/doctors" style={{ marginRight: "20px" }}>All Doctors</Link>
     </nav>
-    
   );
 }
 
