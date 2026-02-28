@@ -1,124 +1,145 @@
-/* ===== BODY WITH BACKGROUND IMAGE ===== */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-
-    background:
-        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.)),
-        url("medical.jpg");   /* Make sure image is in same folder */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+/* Hospital Token System - Global Styles */
+.home-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #333;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 1000;
+.home-header {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.menu a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: 0.3s;
+.home-header h1 {
+  color: #1a508b; /* Deep medical blue */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-.menu a:hover {
-    color: #5b6cff;
+.home-header p {
+  color: #667;
+  font-size: 1.1rem;
 }
 
-.menu a.active {
-    color: #5b6cff;
-    border-bottom: 2px solid #5b6cff;
-    padding-bottom: 4px;
+/* Dashboard Layout */
+.dashboard-section {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.btn {
-    background: #5b6cff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
+.section-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  border-left: 5px solid #3498db;
+  padding-left: 15px;
 }
 
-.btn:hover {
-    background: #3f4cc9;
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-/* ===== MAIN SECTION ===== */
-.main {
-    margin-top: 140px;
-    display: flex;
-    justify-content: center;
+/* Token Card Styles */
+.dept-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e1e8ed;
 }
 
-/* ===== CARD BOX ===== */
-.box {
-    width: 420px;
-    background: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+.dept-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dept-card h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.token-display {
+  background: #eef2f7;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.token-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7f8c8d;
+  margin-bottom: 5px;
+}
+
+.token-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a508b;
+}
+
+.waiting-count {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* Action Button */
+.btn-get-token {
+  background-color: #27ae60; /* Positive Green */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
   
 }
 
-.box h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+.btn-get-token:hover {
+  background-color: #219150;
 }
 
-/* ===== INPUTS ===== */
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+/* Footer Section */
+.home-footer {
+  margin-top: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-/* ===== BUTTONS ===== */
-button {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: none;
-    background: #5b6cff;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
+.footer-link {
+  color: #3498db;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-button:hover {
-    background: #3f4cc9;
+.footer-link:hover {
+  text-decoration: underline;
 }
 
-/* ===== WAITING LIST ===== */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    background: #f4f4f4;
-    padding: 10px;
-    margin: 6px 0;
-    border-radius: 8px;
-    font-size: 14px;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .home-header h1 {
+    font-size: 1.8rem;
+  }
 }

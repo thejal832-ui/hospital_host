@@ -83,3 +83,64 @@ button {
   color: #1a202c; 
 }
 
+
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* Logo Section */
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+/* Styled Button for "All Doctors" */
+.nav-btn {
+  background: #3b82f6; /* Matching your blue Register button */
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 8px;
+
+}
+
+.nav-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
