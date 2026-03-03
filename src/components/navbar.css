@@ -3,7 +3,7 @@
   justify-content: space-between;  
   align-items: center;
   padding: 10px 40px;
-  background-color: #cfd8dc;
+  background-color: #edefef;
 }
 
 .nav-links {
@@ -19,7 +19,7 @@
 
 .create-btn {
   padding: 8px 20px;
-  background-color: #1a237e;
+  background-color: #2e3977;
   color: white;
   border: none;
   border-radius: 20px;

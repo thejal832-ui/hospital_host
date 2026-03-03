@@ -5,6 +5,7 @@
 // export default Contact;
 
 import React, { useState } from "react";
+import bgImage from "../assets/rose.jpg";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
@@ -22,9 +23,9 @@ const Contact: React.FC = () => {
   return (
     <div style={{ fontFamily: "Arial, sans-serif" }}>
 
-      {/* ===== HEADER ===== */}
+      {/* ===== HEu,ADER ===== */}
       <header style={styles.header}>
-        <h2> RadianceMed Hospital</h2>
+        <h2>RadianceMed Hospital</h2>
       </header>
 
       {/* ===== CONTACT SECTION ===== */}
@@ -71,7 +72,7 @@ const Contact: React.FC = () => {
 
       {/* ===== FOOTER ===== */}
       <footer style={styles.footer}>
-        <p>© 2026 City Care Hospital | All Rights Reserved</p>
+        <p>© 2026 RadianceMed Hospital | All Rights Reserved</p>
       </footer>
 
     </div>
@@ -127,6 +128,17 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: "16px",
     cursor: "pointer"
   },
+  container: {
+  padding: "40px 20px",
+  display: "flex",
+  justifyContent: "center",
+  minHeight: "100vh",
+
+  backgroundImage: `url(${bgImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+},
   footer: {
     backgroundColor: "#00695c",
     color: "white",

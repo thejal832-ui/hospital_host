@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css'; // Importing our new CSS file
 
+
 interface Department {
   id: string;
   name: string;

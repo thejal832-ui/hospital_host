@@ -134,9 +134,10 @@ button {
 /* Styled Button for "All Doctors" */
 .nav-btn {
   background: #3b82f6; /* Matching your blue Register button */
-  color: white !important;
+  color: rgb(252, 247, 247) !important;
   padding: 8px 20px;
   border-radius: 8px;
+  
 
 }
 

@@ -143,3 +143,12 @@
     font-size: 1.8rem;
   }
 }
+.home-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+
+  background-image: url("../assets/Stock.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

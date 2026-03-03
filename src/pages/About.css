@@ -1,0 +1,69 @@
+
+.about-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.about-header {
+  background-color: rgba(0, 105, 92, 0.9);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* About Section */
+.about-section {
+  padding: 60px 40px;
+  color: rgb(17, 14, 14);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  max-width: 500px;
+}
+
+.subtitle {
+  margin: 15px 0;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.about-image img {
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Mission & Vision */
+.vm-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 280px;
+  background: rgb(162, 224, 232);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.about-footer {
+  background-color: rgba(0, 105, 92, 0.9);
+  color: white;
+  text-align: center;
+  padding: 15px;
+}

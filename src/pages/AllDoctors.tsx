@@ -1,4 +1,5 @@
 import { useState } from "react";
+import bgImage from "../assets/blaah.jpg";
 
 type Patient = {
   token: number;
@@ -128,12 +129,24 @@ function AllDoctors() {
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    padding: "40px 20px",
-    display: "flex",
-    justifyContent: "center",
-    minHeight: "100vh",
-    background: "#f0f4ff",
-  },
+    // padding: "40px 20px",
+    // display: "flex",
+    // justifyContent: "center",
+    // minHeight: "100vh",
+    // background: "#f0f4ff",
+
+  
+  padding: "40px 20px",
+  display: "flex",
+  justifyContent: "center",
+  minHeight: "100vh",
+
+  backgroundImage: `url(${bgImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+},
+  
   card: {
     width: "100%",
     maxWidth: "900px",
